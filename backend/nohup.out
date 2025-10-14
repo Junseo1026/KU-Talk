@@ -1,0 +1,15 @@
+INFO:     Will watch for changes in these directories: ['/home/ailab/chat_bot/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [3337211] using WatchFiles
+INFO:     Started server process [3337213]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     112.147.56.122:57047 - "POST /chat HTTP/1.1" 200 OK
+INFO:     112.147.56.122:57058 - "POST /chat HTTP/1.1" 200 OK
+INFO:     112.147.56.122:57059 - "POST /chat HTTP/1.1" 200 OK
+INFO:     112.147.56.122:57061 - "POST /chat HTTP/1.1" 200 OK
+INFO:     112.147.56.122:57062 - "POST /chat HTTP/1.1" 200 OK
+INFO:     112.147.56.122:57063 - "POST /chat HTTP/1.1" 200 OK
+INFO:     112.147.56.122:57064 - "POST /chat HTTP/1.1" 200 OK
+INFO:     112.147.56.122:57066 - "POST /chat HTTP/1.1" 200 OK
+INFO:     112.147.56.122:57066 - "POST /chat HTTP/1.1" 200 OK

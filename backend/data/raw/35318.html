@@ -1,0 +1,2692 @@
+
+
+
+<!doctype html>
+<html lang="ko">
+
+
+
+
+
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no, address=no, email=no">
+<meta name="apple-mobile-web-app-title" content="건국대학교 글로컬캠퍼스">
+<meta name="robots" content="index,nofollow">
+<meta name="description" content="건국대학교 글로컬캠퍼스에 오신 것을 환영합니다.">
+<meta property="og:title" content="건국대학교 글로컬캠퍼스">
+<meta property="og:url" content="https://www.kku.ac.kr/">
+<meta property="og:image" content="https://www.kku.ac.kr/hpg/images/common/app_270.png">
+<meta property="og:description" content="건국대학교 글로컬캠퍼스에 오신 것을 환영합니다.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="건국대학교 글로컬캠퍼스">
+<meta name="twitter:url" content="https://www.kku.ac.kr/">
+<meta name="twitter:image" content="https://www.kku.ac.kr/hpg/images/common/app_270.png">
+<meta name="twitter:description" content="건국대학교 글로컬캠퍼스에 오신 것을 환영합니다.">
+<link rel="shortcut icon" type="image/x-icon" href="/hpg/images/common/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://www.kku.ac.kr/hpg/images/common/app_96.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://www.kku.ac.kr/hpg/images/common/app_144.png">
+<link rel="apple-touch-icon" href="https://www.kku.ac.kr/hpg/images/common/app_72.png">
+
+<title>공지사항 | 공지사항 - 컴퓨터공학과</title>
+
+<link type="text/css" rel="stylesheet" href="/hpg/js/slick/slick.css">
+
+	
+		<link type="text/css" rel="stylesheet" href="/directFile/front/hpg/type_B/css/style.css?ver=2025101502241021" >
+	
+	
+
+<link type="text/css" rel="stylesheet" href="/js/jquery/css/jquery-ui.css" />
+<link type="text/css" rel="stylesheet" href="/js/jquery/css/jquery-ui.theme.css" />
+
+<script type="text/javascript" src="/js/jquery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/jquery/jquery.form.js"></script>
+
+<script type="text/javascript" src="/js/comm_fr.js"></script>
+<script type="text/javascript" src="/js/comm_datepicker.js"></script>
+
+<script type="text/javascript" src="/js/jquery/jquery.tmpl.js"></script>
+
+<script type="text/javascript" src="/js/util.js"></script>
+<script type="text/javascript" src="/js/fontsize.js"></script>
+<script type="text/javascript" src="/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/printThis.js"></script>
+
+<script src="/cms/js/wai-aria.ui.js"></script>
+<script src="/hpg/type_kr/js/modal.js"></script>
+
+<script>
+$().ready(function() {
+	$(".view_func .btn_share").click(function(){
+		if($(".view_func .shareBox").attr('class') != 'shareBox'){
+			$(".view_func .shareBox").hide().removeClass('on');
+		}else{
+			$(".view_func .shareBox").show().addClass('on');
+		}
+	});
+	
+	$(".page_util .ic_bt").click(function(){
+		$('.page_conts_wrap').FontSize({
+			increaseTimes: 3,
+			reduceTimes: 3,
+			step: 3,
+			increaseBtn:'.btn_zoomIn',
+			reduceBtn:'.btn_zoomOut'
+		});
+	});
+	
+	var clipboard = new ClipboardJS('.btn_copyurl', {
+		text: function() {
+			return fn_getUrl();
+		}
+	});
+	clipboard.on('success', function(e) {
+		alert("URL이 복사되었습니다.");
+	});
+	clipboard.on('error', function(e) {
+		alert("URL복사에 실패했습니다.");
+	});
+});
+
+function fn_goPrint(){
+	$(".page_conts_wrap").printThis();
+};
+
+function fn_getUrl(){
+	var rtnUrl = ""; 
+	var url = decodeURIComponent(location.href);
+	url = decodeURIComponent(url);
+	url = url.replace("#none","");
+	url = url.replace("#page","@page");
+	url = url.replace("#","");
+	url = url.replace(";","");
+	url = url.replace("@page","#page");
+	var params = "";
+	if(url.indexOf('?')>0){
+		params = url.substring( url.indexOf('?')+1, url.length );
+		rtnUrl = url.substring( 0, url.indexOf('?'));
+		params = params.split("&");
+		var size = params.length;
+		var key, value;
+		for(var i=0 ; i < size ; i++) {
+			key = params[i].split("=")[0];
+			value = params[i].split("=")[1];
+			if(key=='P_TAB_NO'){
+				continue;
+			}
+			if(key=='TAB_NO'){
+				continue;
+			}
+			if(i==0){
+				rtnUrl += "?"+key+"="+value;
+			}else{
+				rtnUrl += "&"+key+"="+value;
+			}
+		}
+	}else{
+		rtnUrl = url;
+	}
+	
+	if($(".list_tab li a").length > 1){
+		key = "P_TAB_NO";
+		value = $(".list_tab li a").index($(".list_tab li a.on"))+1;
+		if(i==0){
+			rtnUrl += "?"+key+"="+value;
+		}else{
+			rtnUrl += "&"+key+"="+value;
+		}
+	}
+	
+	if($("#sub_tab_list li a").length > 1){
+		key = "TAB_NO";
+		value = $("#sub_tab_list li a").index($("#sub_tab_list li a.on"))+1;
+		if(i==0){
+			rtnUrl += "?"+key+"="+value;
+		}else{
+			rtnUrl += "&"+key+"="+value;
+		}
+	}
+	
+	if($(".campusmap_tab li a").length > 1){
+		key = "CAMPUS_MAP";
+		value = $(".campusmap_tab li a").index($(".campusmap_tab li a.on"))+1;
+		if(i==0){
+			rtnUrl += "?"+key+"="+value;
+		}else{
+			rtnUrl += "&"+key+"="+value;
+		}
+	}
+	rtnUrl = rtnUrl.replace("#;","");
+	return rtnUrl;
+}
+
+function shareSns(sns){
+	var snsTitle = '';
+	var snsItems = new Array();
+	var winOpt = new Array();
+	var snsUrl = fn_getUrl();
+	
+	snsItems['facebook'] = "http://www.facebook.com/share.php?t="+encodeURIComponent(snsTitle) + "&u=" + encodeURIComponent(snsUrl);
+	snsItems['twitter'] = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(snsTitle + "\n" + snsUrl);
+	snsItems['kakao'] = "https://story.kakao.com/share?url="+encodeURIComponent(snsUrl);
+	
+	winOpt['facebook'] = "width=700, height=500, resizable=yes";
+	winOpt['twitter'] = "width=700, height=500, resizable=yes";
+	winOpt['kakao'] = "width=500, height=500, resizable=yes";
+	
+	var win = window.open(snsItems[sns], sns, winOpt[sns]);
+	if (win) {
+		win.focus();
+	}
+}
+</script>
+</head>
+<body>
+	
+
+<script type="text/javascript">
+var MSG = {"labelSubject":"제목","searchPlaceholder":"검색어를 입력하세요.","btnReply":"답글","labelUseY":"사용","labelNotice":"공지사항여부","alertPwd":"비밀번호 입력이 잘못되었습니다.\\n5회이상 비밀번호 오류 시 접근이 제한됩니다.\\n( 현재 {0}회 오류. )","popupButtonClose":"닫기","alertPwdLimit":"5회이상 비밀번호입력이 잘못되었습니다.\\n담당자에게 비밀번호 변경요청을 해주세요","alertDeleteSuccess":"삭제되었습니다.","labelAnnounceDate":"공고일","optionAll":"전체","labelUploadEach":"개당","labelAnnounceStartHour":"공고 시작 시간","msgFileEncrypted":"해당파일은 암호화 처리 되었습니다.","suffixRequired":"은(는) 필수입니다.","labelPostEndMinute":"게시 종료 분","labelSecret":"비밀글 여부","labelPostPeriod":"게시기간","labelDateFormatSort":"0000년 00월 00일 형태로 정렬됩니다.","suffixSelect":"을(를) 선택 후 진행바랍니다.","btnNext":"다음글","searchFormLegend":"게시판 검색 입력 폼","labelContents":"내용","labelFileuploadTitle":"파일업로드","searchOptionSelect":"검색조건 선택","labelHistory":"수정이력","msgWriteAuto":"입력하지 않으면 자동으로 입력됨","postsTotalPrefix":"총","labelThumbnailSize":"이미지 사이즈 가로(250)x세로(332)","alertErrorOccurred":"오류가 발생했습니다. 관리자에게 문의하세요.","loginInfo":"재학생 및 교직원은 종합정보시스템의 접속 아이디와 비밀번호로 로그인하시기 바랍니다.","labelSavedData":"저장 데이터","popupPasswordCheckTitle":"비밀번호 확인","labelHour":"시","btnFold":"접기","labelFileDownload":"파일다운로드","labelContent":"내용","labelFileDelete":"파일삭제","labelNoticePeriod":"공지기간","labelAnnounceStartMinute":"공고 시작 분","labelUseYn":"사용여부","labelAnnounceStartDate":"공고 시작일","suffixInput":"을(를) 입력하세요.","labelFile":"파일","labelDisplayHide":"노출안함","placeholderPassword":"비밀번호","btnAddFile":"파일 추가","labelName":"이름","btnList":"목록","linkChangePassword":"비밀번호 변경","alertEnterContents":"내용을 입력하세요.","alertSaveFail":"저장에 실패했습니다. 관리자에 문의하세요.","labelPostStartMinute":"게시 시작 분","labelPostEndDate":"게시 종료일","popupPasswordCheckMessage":"비밀번호를 입력해주세요.","labelStartDate":"시작일","labelPostStartHour":"게시 시작 시간","alertSessionExpired":"세션이 만료되었습니다.","btnAdd":"추가","popupTitle":"팝업","labelThumbnail":"썸네일이미지","labelAnnounceEndHour":"공고 종료 시간","labelThumbnailBrowse":"찾아보기","labelUseN":"미사용","labelDate":"날짜","labelNoPrev":"이전글이 없습니다.","labelPostStartDate":"게시 시작일","labelDisplayShow":"노출","campuamapTitle":"글로컬 캠퍼스맵","labelEndDate":"종료일","labelUploadSetting":"업로드 설정","labelYear":"년도","labelWriteDate":"작성일","btnLoadContent":"해당 내용 불러오기","labelTotal":"전체","btnSearch":"검색","btnUploadFile":"파일 업로드","labelAttach":"첨부파일","alertUserCheck":"사용자 정보를 다시 확인 후 진행바랍니다.","labelStatus":"상태","btnRemoveFile":"파일 삭제","labelAnnounceEndMinute":"공고 종료 분","optionSelect":"선택","labelNoticeShort":"상단공지","alertRequiredAlt":"대체 텍스트(alt)는 필수 항목입니다.","btnSave":"저장","labelAnnounceEndDate":"공고 종료일","popupPasswordCheckFieldPlaceholder":"비밀번호 입력","labelUploadMax":"최대","labelNoNext":"다음글이 없습니다.","alertSaveSuccess":"저장되었습니다.","labelDisplay":"노출 여부","alertNoSite":"선택된 사이트가 없습니다.","postsTotalSuffix":"개의 게시물이 있습니다.","labelPostEndHour":"게시 종료 시간","alertEnterWriter":"작성자를 입력하세요.","labelImgAlt":"대체 텍스트(alt)","popupButtonOk":"완료","labelNoticeStartDate":"공지 시작일","btnEdit":"수정","labelNoticeTop":"최상단 공지사항여부","labelWriteHour":"작성 시간","msgFileDelete":"파일을 삭제합니다.","labelNoticeTopShort":"최상단공지","labelCategory":"분류","labelWriteMinute":"작성 분","title":"건국대학교 글로컬캠퍼스","campuamapFindWord":"건물 이름을 입력하세요.","labelSize":"크기","btnDelete":"삭제","btnRemove":"삭제","labelNoticeEndDate":"공지 종료일","confirmSave":"저장하시겠습니까?","btnComment":"댓글","labelWriter":"작성자","btnClose":"닫기","btnPrev":"이전글","msgNoticeUnlimited":"공지기간을 입력하지 않으면 무기한 공지로 등록되어짐","locationTitle":"캠퍼스맵","btnRegister":"등록","confirmDelete":"삭제하시겠습니까?","labelPassword":"비밀번호","btnCancel":"취소","labelMinute":"분","btnLogin":"로그인","placeholderUserId":"아이디","msgAnnounceUnlimited":"공고일을 입력하지 않으면 무기한 공고로 등록되어짐","linkFindAccount":"아이디\\/비밀번호 찾기","labelLinkUrl":"연결 URL","alertDeleteFail":"삭제에 실패했습니다. 관리자에 문의하세요."};
+</script>
+
+	
+
+
+
+<script>
+$().ready(function() {
+	$('[data-frontfile]').click(function(e){
+		var fileNm = encodeURIComponent($(this).data("frontfile"));
+		alert(fileNm);
+		location.href="/ajaxFile/FR_SVC/FileDownDirect.do?FILE_NM="+ fileNm+"&FILE_FD="+ $(this).data("frontfolder");
+	});
+	
+	
+});
+</script>
+<div id="skip_menu">
+	<ul>
+		<li><a href="#container" aria-label="본문 바로가기">본문 바로가기</a></li>
+		<li><a href="#header" aria-label="주메뉴 바로가기">주메뉴 바로가기</a></li>
+		<li><a href="#footer" aria-label="하단메뉴 바로가기">하단메뉴 바로가기</a></li>
+	</ul>
+</div>
+<!--//skip_menu-->
+<header>
+	<div id="header" class="header_wrap"><!-- gnb 오픈 클래스 gnbOn, 통합검색 오픈 클래스 searchOn, gnbFx과 searchOn은 같이 사용할 수 없다 -->
+		<div class="ku_service">
+			<ul>
+				<li><a href="/index.do" class="">HOME</a></li>
+				
+					<li>
+						
+							
+								<a href="/cms/FR_CON/index.do?MENU_ID=230" class="btn_login">로그인</a>
+							
+							
+						
+					</li>
+				
+				<li><a href="https://www.kku.ac.kr/" target="_blank" title="새 창" class="">글로컬캠퍼스</a></li>
+				<li><a href="https://www.konkuk.ac.kr/" target="_blank" title="새 창" class="">서울캠퍼스</a></li>
+				<li>
+					
+						
+							<button type="button" title="팝업열기" class="btn_fullpopup "><span>Popup</span><i>0</i></button>
+						
+						
+					
+				</li>
+			</ul>
+		</div>
+		<!--//ku_service-->
+		<div class="header_inner">
+			<h1 class="logo">
+				<a href="/index.do"><img src="/hpg/images/common/cm_logo.png" alt="KU 건국대학교 KONKUK UNIV."></a>
+				<strong class="site_tit">컴퓨터공학과</strong>
+			</h1>
+			
+			<h2 class="sr_only">주요메뉴</h2>
+			<div class="header_nav"><!-- 모바일에서 메뉴 오픈 클래스 on -->
+				<div class="mobile_head">
+					<h1 class="logo">
+						<a href="/"><img src="/hpg/images/common/cm_logo.png" alt="KU 건국대학교 KONKUK UNIV."></a>
+					</h1>
+					<div class="btn_wrap">
+						
+							
+								<button type="button" title="팝업열기" class="btn_fullpopup "><span>Popup</span><i>0</i></button>
+							
+							
+						
+						<button type="button" class="btn_ico btn_gnb_close">모바일 메뉴 닫기</button>
+					</div>
+				</div>
+				<div class="mobile_top_sevice">
+					<ul>
+						
+							<li>
+								
+									
+										<a href="/cms/FR_CON/index.do?MENU_ID=230" class="btn_login">로그인</a>
+									
+									
+								
+							</li>
+						
+						<li><a href="https://www.kku.ac.kr/" target="_blank"  title="새 창" class="">글로컬캠퍼스</a></li>
+						<li><a href="https://www.konkuk.ac.kr/" target="_blank" title="새 창" class="">서울캠퍼스</a></li>
+						<li>
+							
+								
+									<button type="button" title="팝업열기" class="btn_fullpopup "><span>Popup</span><i>0</i></button>
+								
+								
+							
+						</li>
+					</ul>
+				</div>
+					
+
+<script>
+$(function(){
+	var headerLoc = $(window).scrollTop();
+	if(headerLoc == 0){
+		$(document.body).scrollTop();
+	}
+	if(headerLoc > 0){
+		$('body').addClass('gnbFx');
+	}else{
+		$('body').removeClass('gnbFx');
+	}
+	
+	document.body.addEventListener('scroll', function(){
+		//메인페이지
+		headerLoc = $(document.body).scrollTop();
+		if(headerLoc > 0){
+			$('body').addClass('gnbFx');
+		}else{
+			if(!$(".subContainer").length){
+				$('body').removeClass('gnbFx');
+			}
+		}
+	}, true);
+	
+	$(window).scroll(function(){
+		headerLoc = $(window).scrollTop();
+		if(headerLoc > 0){
+			$('body').addClass('gnbFx');
+		}else{
+			$('body').removeClass('gnbFx');
+		}
+	});
+	
+	$('.gnb_depth1>li').click(function(){
+		$('.gnb_div').removeClass("on");
+		/*
+		if(!$('body').hasClass('gnbFx')){
+			$("body").fadeIn().addClass("gnbOn");
+		}
+		*/
+		$(".header_wrap").show().addClass("gnbOn");
+		$('.dim').addClass("on");
+		if($(".header_nav").hasClass("on")){
+			$(this).find('.gnb_div').fadeIn().addClass("on");
+		}else{
+			$('.gnb_div').show().addClass("on");
+		}
+	});
+	
+	$('.gnb').hover(function(){
+	}, function() {
+		if($(".header_nav.on").length) {
+			
+		}else{
+			$(".header_wrap").removeClass("gnbOn");
+			$('.gnb_div').removeClass("on");
+			$('.dim').removeClass("on");
+			$('.gnb_div').css('display', 'none');
+			$('.gnb_depth1>li').removeClass("on");
+		}
+	});
+	
+	$(document).on('click', '.btn_gnb_close', function(e) {
+		$(this).removeClass('btn_gnb_close').addClass('btn_gnb');
+		$(".header_wrap, .dim, .header_nav").removeClass("on");
+		$('.header_nav .gnb_depth1>li').removeClass("on");
+	});
+	
+	$(document).on('click', '.btn_gnb', function() {
+		$(this).removeClass('btn_gnb').addClass('btn_gnb_close');
+		$('.dim, .header_nav').addClass("on");
+		$('.header_nav .gnb_depth1>li').eq(0).trigger("click");
+	});
+	
+	$('.header_nav .gnb_depth1>li').click(function(){
+		$('.dim').addClass("on");
+		$('.header_nav .gnb_depth1>li').removeClass("on");
+		$(this).addClass("on");
+		if($(".header_nav").hasClass("on")){
+			$('.gnb_div').removeClass("on");
+			$(this).find('.gnb_div').show().addClass("on");
+		}
+	});
+	
+	$(document).on("click", "ul#gnb li", function(){
+		if($(".header_nav").hasClass("on") != true) {
+			setGnbHref($(this),$(this));
+		}
+	});
+});
+
+function fn_linkUrl(obj, url, target) {
+	if($(".header_nav.on").length) {
+		if($(obj).next(".gnb_depth3").find("li").length == 0){
+			if("_self" == target){
+				location.href = url;
+			}else{
+				window.open(url);
+			}
+		}else{
+			$(".gnb_depth3").css('display', 'none');
+			$(obj).next(".gnb_depth3").css('display', 'block');
+		}
+	}else{
+		if("_self" == target){
+			location.href = url;
+		}else{
+			window.open(url);
+		}
+	}
+}
+
+function setGnbHref(obj, org){
+	if($(obj).find("> ul > li").length > 0 && $(obj).data("linksubyn")=='Y' && $(obj).data("lvl") <= 4){
+		$(org).find(">a").attr("href",$(obj).find("> ul > li:eq(0) > a").attr("href"));
+		setGnbHref($(obj).find("> ul > li:eq(0)"),org);
+	}
+}
+</script>
+<nav>
+	<div class="gnb">
+		<ul class="gnb_depth1" id="gnb">
+			
+			
+				<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>학과소개</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=20', '_self')"; title="학과안내">
+													<span>학과안내</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=30', '_self')"; title="교수진소개">
+													<span>교수진소개</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=40', '_self')"; title="연혁">
+													<span>연혁</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=50', '_self')"; title="동아리/소모임">
+													<span>동아리/소모임</span>
+												</a>
+												
+											</li>
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=60', '_self')"; title="문의 및 연락처">
+													<span>문의 및 연락처</span>
+												</a>
+												
+											</li>
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=70', '_self')"; title="찾아오시는 길">
+													<span>찾아오시는 길</span>
+												</a>
+												
+											</li>
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+				<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>교육과정</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=90', '_self')"; title="연도별 교육과정">
+													<span>연도별 교육과정</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=100', '_self')"; title="교과목 폐지에 따른 대체교과목">
+													<span>교과목 폐지에 따른 대체교과목</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+				<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>대회수상</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=120', '_self')"; title="대회수상">
+													<span>대회수상</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+				<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>공지사항</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+									
+										
+									
+										
+									
+										
+											
+												
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=140', '_self')"; title="공지사항">
+													<span>공지사항</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+				<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>게시판</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=160', '_self')"; title="자유게시판">
+													<span>자유게시판</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=170', '_self')"; title="학생회 소식">
+													<span>학생회 소식</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=180', '_self')"; title="행사 사진">
+													<span>행사 사진</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+				<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>실습계정</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=210', '_self')"; title="실습계정">
+													<span>실습계정</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+				<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>자료실</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+											
+											<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+												
+												
+												<a class="nav_link " href="#a" onclick="fn_linkUrl(this, '/cms/FR_CON/index.do?MENU_ID=220', '_self')"; title="자료실">
+													<span>자료실</span>
+												</a>
+												
+											</li>
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+				<li class=""  style="display:none"  data-showyn="N" data-lvl="1" name="gnb_lvl1" data-linksubyn="N"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>로그인</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+				<li class=""  style="display:none"  data-showyn="N" data-lvl="1" name="gnb_lvl1" data-linksubyn="N"><!-- 오픈 클래스 on-->
+					
+						
+						
+							<a href="#a" class="nav_link"><span>사이트맵</span></a>
+						
+					
+					
+						<div class="gnb_div"><!-- 하위메뉴 오픈 클래스 on-->
+							<div class="gnb_div_inner">
+								<ul class="gnb_depth2">
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+										
+									
+								</ul>
+							</div>
+						</div>
+					
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+			</div>
+			<!-- //header_nav -->
+			
+			<div class="util">
+				<ul>
+
+					<li class="line">
+						
+							<a href="/cms/FR_CON/index.do?MENU_ID=240" class="btn_ico btn_sitemap">사이트 맵 이동</a>
+						
+						<button type="button" class="btn_ico btn_gnb">모바일 메뉴 열기</button>
+					</li>
+				</ul>
+			</div>
+			<!--//util-->
+		</div>
+		<!-- //header_inner -->
+	</div>
+	<!-- //header_wrap -->
+</header>
+<!-- //header -->
+<div class="dim"></div><!-- 오픈 클래스 on -->
+	<div id="container" class="subContainer">
+
+		
+
+<script>
+$().ready(function() {
+	var headerLoc = $(window).scrollTop();
+	if(headerLoc > 0){
+		$('.page_head').addClass('fix');
+	}else{
+		$('.page_head').removeClass('fix');
+	}
+	
+	$(window).scroll(function(){
+		headerLoc = $(window).scrollTop();
+		if(headerLoc > 0){
+			$('.page_head').addClass('fix');
+		}else{
+			$('.page_head').removeClass('fix');
+		}
+	});
+	
+	$('.page_navi_top>ul>li.page_depth1').click(function(){
+		if($("#page_depth1").is(":hidden")) {
+			$("#page_depth1").show();
+		} else {
+			$("#page_depth1").hide();
+		}
+		$(this).toggleClass("on");
+	});
+	
+	$('.page_navi_top>ul>li.page_depth2').click(function(){
+		if($("#page_depth2").is(":hidden")) {
+			$("#page_depth2").show();
+		} else {
+			$("#page_depth2").hide();
+		}
+		$(this).toggleClass("on");
+	});
+	
+	$('.page_navi_top>ul>li.page_depth3').click(function(){
+		if($("#page_depth3").is(":hidden")) {
+			$("#page_depth3").show();
+		} else {
+			$("#page_depth3").hide();
+		}
+		$(this).toggleClass("on");
+	});
+	
+	$('.page_navi_top>ul>li.page_depth4').click(function(){
+		if($("#page_depth4").is(":hidden")) {
+			$("#page_depth4").show();
+		} else {
+			$("#page_depth4").hide();
+		}
+		$(this).toggleClass("on");
+	});
+
+	$(document).on("click", "ul#page_depth1 li", function(){
+		setPageHeaderHref($(this),$(this));
+	});
+	
+	$(document).on("click", "ul#page_depth2 li", function(){
+		setPageHeaderHref($(this),$(this));
+	});
+	
+	$(document).on("click", "ul#page_depth3 li", function(){
+		setPageHeaderHref($(this),$(this));
+	});
+});
+
+
+function setPageHeaderHref(obj, org){
+	if($(obj).find("> ul > li").length > 0 && $(obj).data("linksubyn")=='Y' && $(obj).data("lvl") <= 4){
+		$(org).find(">a").attr("href",$(obj).find("> ul > li:eq(0) > a").attr("href"));
+		setPageHeaderHref($(obj).find("> ul > li:eq(0)"),org);
+	}
+}
+</script>
+<div class="page_head"><!-- 페이지 스크롤 시 클래스 fix 추가 -->
+	
+	<div class="page_visual subVisual_04">
+		<div class="page_head_txt">
+			<div class="page_gnb_tit">
+				<strong>공지사항</strong>
+				
+			</div>
+		</div>
+		<!--//page_head_inner-->
+	</div>
+</div>
+		<!--//page_head-->
+
+		<div class="page_conts">
+			
+
+<script>
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+
+
+
+$().ready(function() {
+	if(!isMobile) {
+		//PC
+		$(".btn_plus").parent("li").show();
+		$(".btn_minus").parent("li").show();
+		$(".btn_print").parent("li").show();
+	} else {
+		//MOBILE
+		$(".btn_plus").parent("li").hide();
+		$(".btn_minus").parent("li").hide();
+		$(".btn_print").parent("li").hide();
+	}
+
+	
+	$('.copyurl_txt').text(window.location.href.replace("#a", "").replace("#;", ""));
+	
+	$('.btn_favo').click(function(){
+		$(".share_div").removeClass("on");
+		$(".favo_div").toggleClass("on");
+	});
+	
+	$('.btn_share').click(function(){
+		$(".favo_div").removeClass("on");
+		$(".share_div").toggleClass("on");
+	});
+	
+	$('.page_util .dialog .close').click(function(){
+		$(".favo_div").removeClass("on");
+		$(".share_div").removeClass("on");
+	});
+	
+	
+});
+</script>
+
+<div class="page_navi">
+	<div class="page_navi_top">
+		<ul>
+			<li class="go_home"><a href="/" title="홈으로">홈으로 이동</a></li>
+			
+				
+				
+					<li class="page_depth1">
+						<button type="button" name="">공지사항</button>
+						<ul class="page_div" style="display: none;" id="page_depth1">
+							
+								<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>학과소개</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=20" title="학과안내" >
+															<span>학과안내</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=30" title="교수진소개" >
+															<span>교수진소개</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=40" title="연혁" >
+															<span>연혁</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=50" title="동아리/소모임" >
+															<span>동아리/소모임</span>
+														</a>
+														
+													</li>
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=60" title="문의 및 연락처" >
+															<span>문의 및 연락처</span>
+														</a>
+														
+													</li>
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=70" title="찾아오시는 길" >
+															<span>찾아오시는 길</span>
+														</a>
+														
+													</li>
+												
+											
+										</ul>
+									
+								</li>
+							
+								<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>교육과정</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=90" title="연도별 교육과정" >
+															<span>연도별 교육과정</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=100" title="교과목 폐지에 따른 대체교과목" >
+															<span>교과목 폐지에 따른 대체교과목</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+								<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>대회수상</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=120" title="대회수상" >
+															<span>대회수상</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+								<li class="on"  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>공지사항</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+											
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=140" title="공지사항" >
+															<span>공지사항</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+								<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>게시판</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=160" title="자유게시판" >
+															<span>자유게시판</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=170" title="학생회 소식" >
+															<span>학생회 소식</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=180" title="행사 사진" >
+															<span>행사 사진</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+								<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>실습계정</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=210" title="실습계정" >
+															<span>실습계정</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+								<li class=""  data-showyn="Y" data-lvl="1" name="gnb_lvl1" data-linksubyn="Y"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>자료실</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+													<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y">
+														<a href="/cms/FR_CON/index.do?MENU_ID=220" title="자료실" >
+															<span>자료실</span>
+														</a>
+														
+													</li>
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+								<li class=""  style="display:none"  data-showyn="N" data-lvl="1" name="gnb_lvl1" data-linksubyn="N"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>로그인</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+								<li class=""  style="display:none"  data-showyn="N" data-lvl="1" name="gnb_lvl1" data-linksubyn="N"><!-- 오픈 클래스 on-->
+									<a href="#;" class="nav_link"><span>사이트맵</span></a>
+									
+										<ul class="gnb_depth2" style="display:none">
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+												
+											
+										</ul>
+									
+								</li>
+							
+						</ul>
+					</li>
+					
+					
+						<li class="page_depth2">
+							<button type="button" name="">공지사항</button>
+							<ul class="page_div" style="display: none;" id="page_depth2">
+								
+									
+								
+									
+								
+									
+								
+									
+										<li data-lvl="2" name="gnb_lvl2" data-linksubyn="Y" class="on">
+											<a href="/cms/FR_CON/index.do?MENU_ID=140" title="공지사항" class="nav_link" >
+												<span>공지사항</span>
+											</a>
+											
+										</li>
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+									
+								
+							</ul>
+						</li>
+					
+					
+					
+					
+					
+				
+			
+		</ul>
+		<div class="page_util">
+			<ul class="page_utilBtn">
+				<li><button type="button" class="ic_bt btn_plus btn_zoomIn" title="글자 크게">글자 크게</button></li>
+				<li><button type="button" class="ic_bt btn_minus btn_zoomOut" title="글자 작게">글자 작게</button></li>
+				
+				
+				<li>
+					<button type="button" class="ic_bt btn_print" title="인쇄" onclick="fn_goPrint()">인쇄</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!--//page_navi-->
+			<!--//page_navi-->
+			<div class="page_conts_wrap">
+				<div class="conts_inner">
+					<h3 class="page_title">공지사항</h3>
+					
+					
+					<section>
+						<div class="">
+							<article>
+								<!--컨텐츠 위치-->
+								
+
+
+
+ 
+
+<!----------------------------- videojs를 위해 포함하는 부분------------------->
+<link type="text/css" rel="stylesheet" href="/itsp/kv/video-js.css">
+<script type="text/javascript" src="/itsp/kv/video.js"></script>
+<script type="text/javascript" src="/itsp/kv/itspplayer1.4.js"></script>
+<script type="text/javascript" src="/itsp/kv/youtube.js"></script>
+<!----------------------------- videojs를 위해 포함하는 부분------------------->
+<style type="text/css">
+.post_body_media {padding-top:20px;}
+.post_body_media .images {padding-top:20px; text-align:center;overflow:hidden;}
+.post_body_media .vod {position:relative;margin:0 auto;width:53.3%;max-width:800px;}
+	@media screen and (max-width:780px) {
+		.post_body_media .vod {width:100%;}
+	}
+</style>
+<script type="text/javascript">
+$().ready(function() {
+	start_itspplayer();
+});
+</script>
+
+<script>
+
+$().ready(function() {
+	
+	fn_detail();
+	
+	if("N" == "Y"){
+		fn_comment_list();	
+	}
+	
+	$('.answer_area fieldset textarea').keyup(function(){
+		textareaBytes(this);
+	});
+
+});
+
+function textareaBytes(obj){
+	var text = $(obj).val();
+	$(obj).parents("fieldset").find("b").text(getTextBytes(text));
+}
+
+function getTextBytes(str){
+	var len = 0;
+	for(var i =0; i< str.length; i++){
+		if(escape(str.charAt(i)).length == 6){
+			len++;
+		}
+		len++;
+	}
+	return len;
+}
+
+function fn_detail(){
+	if($("#sendForm input:hidden[name=BBS_SEQ]").val() == ''){
+		return;
+	}
+	
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardViewData.do",
+		data : $("#sendForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			$("#sendForm").fn_comm_setValue(data);
+		}
+	});
+}
+
+function fileDown(obj){
+	location.href="/ajaxFile/FR_SVC/FileDown.do?BOARD_SEQ="+$(obj).data("boardseq")+"&SITE_NO="+$(obj).data("siteno")+"&BBS_SEQ="+$(obj).data("bbsseq")+"&FILE_SEQ="+$(obj).data("fileseq");
+}
+
+function modiPage(){
+	if(("N" == "Y" || "N" == "Y")&&"" != "Y"){
+		if($("#PASSWD").val() == ""){
+			//alert(MSG.labelPassword + MSG.suffixSelect);
+			alert(MSG.labelPassword + MSG.suffixInput);
+			return;
+		}
+		$("#sendForm input[name=PASSWD]").val("");
+		$("#sendForm input[name=PASSWD]").val($("#PASSWD").val());
+		
+		fn_comm_ajax({
+			url : "/ajax/FR_SVC/BBSPwdCheck.do",
+			data : $("#sendForm").serialize(),
+			dataType : "json",
+			success : function(data) {
+				if(data == 1){
+					$("#sendForm").attr("action", "BoardWrite.do");
+					$("#sendForm").submit();
+				}else if(data == 2){
+					captchaEXCB();
+				}else{
+					alert("비밀번호가 맞지 않습니다.");
+				}
+			}
+		});
+	}else{
+		$("#sendForm").attr("action", "BoardWrite.do");
+		$("#sendForm").submit();
+	}
+}
+
+function delPage(){
+	if("N" == "Y" || "N" == "Y"){
+		if($("#PASSWD").val() == ""){
+			alert(MSG.labelPassword + MSG.suffixInput);
+			return;
+		}
+		$("#sendForm input[name=PASSWD]").val("");
+		$("#sendForm input[name=PASSWD]").val($("#PASSWD").val());
+		
+		fn_comm_ajax({
+			url : "/ajax/FR_SVC/BBSPwdCheck.do",
+			data : $("#sendForm").serialize(),
+			dataType : "json",
+			success : function(data) {
+				if(data == 1){
+					alert("1,",data);
+					if (!confirm(MSG.confirmDelete)) {
+						return;
+					}
+					if($(this).parent().find("[name^=BBS_SEQ]").val() != ""){
+						fn_comm_ajax({
+							url : "/ajax/FR_SVC/BoardQnaDelete.do",
+							data : $("#sendForm").serialize(),
+							dataType : "json",
+							success : function(data) {
+								alert("2.",data);
+								$("#sendForm").attr("action", "index.do");
+								$("#sendForm").submit();
+							}
+						});
+					}
+				}else if(data == 2){
+					captchaEXCB();
+				}else{
+					alert("비밀번호가 맞지 않습니다.");
+				}
+			}
+		});
+	}else{
+		if (!confirm(MSG.confirmDelete)) {
+			return;
+		}
+		if($(this).parent().find("[name^=BBS_SEQ]").val() != ""){
+			//ajax
+			fn_comm_ajax({
+				url : "/ajax/FR_SVC/BoardQnaDelete.do",
+				data : $("#sendForm").serialize(),
+				dataType : "json",
+				success : function(data) {
+					$("#sendForm").attr("action", "index.do");
+					$("#sendForm").submit();
+				}
+			});
+		}
+	}
+}
+
+//관리자의 경우 비밀글 관계없이 삭제 가능
+function delContents(){
+	if("" != "Y"){
+		if($("#PASSWD").val() == ""){
+			//alert(MSG.labelPassword + MSG.suffixSelect);
+			alert(MSG.labelPassword + MSG.suffixInput);
+			return;
+		}
+		$("#sendForm input[name=PASSWD]").val("");
+		$("#sendForm input[name=PASSWD]").val($("#PASSWD").val());
+		
+		if($(this).parent().find("[name^=BBS_SEQ]").val() != ""){
+			//ajax
+			fn_comm_ajax({
+				url : "/ajax/FR_SVC/BBSPwdCheck.do",
+				data : $("#sendForm").serialize(),
+				dataType : "json",
+				success : function(data) {
+					if(data == 1){
+						if (!confirm(MSG.confirmDelete)) {
+							return;
+						}
+						if($(this).parent().find("[name^=BBS_SEQ]").val() != ""){
+							fn_comm_ajax({
+								url : "/ajax/FR_SVC/BoardQnaDelete.do",
+								data : $("#sendForm").serialize(),
+								dataType : "json",
+								success : function(data) {
+									$("#sendForm").attr("action", "index.do");
+									$("#sendForm").submit();
+								}
+							});
+						}
+					}else if(data == 2){
+						captchaEXCB();
+					}else{
+						alert("비밀번호가 맞지 않습니다.");
+					}
+				}
+			});
+		}	
+	}else{
+		if (!confirm(MSG.confirmDelete)) {
+			return;
+		}
+		if($(this).parent().find("[name^=BBS_SEQ]").val() != ""){
+			//ajax
+			fn_comm_ajax({
+				url : "/ajax/FR_SVC/BoardQnaDelete.do",
+				data : $("#sendForm").serialize(),
+				dataType : "json",
+				success : function(data) {
+					$("#sendForm").attr("action", "index.do");
+					$("#sendForm").submit();
+				}
+			});
+		}	
+	}
+}
+
+function fn_reply_list(){
+	
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardReplyListData.do",
+		data : $("#replyModiForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			
+			fn_comm_setList("#tbody", data, "#listTemplate", "#noListTemplate", "#rowCount", "#p_pagination0");
+			
+			$("#replyModiForm div.list").each(function(){
+				var org = $(this).find(">div:eq(0)").text();
+				$(this).find(">div:eq(0)").html(org.replace(/\n/g,"<br/>"));
+			});
+		}
+	});
+}
+
+
+function fn_reply_save(){
+	
+	//validation check
+	if($("#replyWriteForm input:text[name=WRITER_NM]").val().trim() == ""){
+		alert('작성자를 입력하세요.');
+		return;
+	}
+	if($("#replyWriteForm textarea[name=CONTENTS]").val().trim() == ""){
+		alert('답글을 입력하세요.');
+		return;
+	}
+	
+	if(!confirm(MSG.confirmSave)) {
+		return;
+	}
+	
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardQnaReplySave.do",
+		ajaxFormName : 'replyWriteForm',
+		dataType : "json",
+		success : function(data) {
+			if(data == 1){
+				alert(MSG.alertSaveSuccess);
+				$("#replyWriteForm input:text[name=WRITER_NM]").val("");
+				$("#replyWriteForm textarea[name=CONTENTS]").val("");
+				$("#replyWriteForm input:text[name=FILE_NM]").val("");
+				$("#replyWriteForm .fileArea p").remove();
+				$("#replyWriteForm input:file").remove();
+				$('<input type="file" name="ATTACH_FILE_OBJNEW" onchange="changeFile(this);"/>').appendTo($("#replyWriteForm .fileArea a.btn_board"));
+				fn_reply_list();
+			}else if(data == 2){
+				alert(MSG.alertSessionExpired);
+			}else{
+				alert(MSG.alertSaveFail);
+			}
+		}
+	});
+}
+
+function changeFile(obj){
+	var fileName = $(obj).val();
+	fileName = fileName.substring(fileName.lastIndexOf("\\")+1);
+	fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+	
+	if(fileName != "") {
+		if($(obj).parent().parent().is("TD")){
+			var $parent = $(obj).parent().parent();
+			$parent.find(">[name='FILE_NM']").val(fileName);
+		}else{
+			var $parent = $(obj).parent().parent();
+			$parent.find("[name='FILE_NM']").val(fileName);
+		}
+	}
+}
+
+function fileDown2(obj){
+	location.href="/ajax/FR_SVC/FileDown.do?BOARD_SEQ="+$(obj).data("boardseq")+"&SITE_NO="+$(obj).data("siteno")+"&BBS_SEQ="+$(obj).data("bbsseq")+"&FILE_SEQ="+$(obj).data("fileseq");
+}
+
+function replyModi(obj){
+	
+	var idx = $("div.list").index($(obj).parents(".list"));
+	$("div.list").find("b, time, div, ul, p:eq(0)").show();
+	$("div.list:eq("+idx+")").find("b, time, div, ul, p:eq(0)").hide();
+	$("div.list table").remove();
+	$("div.list p.btn_c").remove();
+	
+	var tableObj = $("#cloneTable").html();
+	
+	$(tableObj).appendTo($(obj).parents("div.list"));
+	$(obj).parents("div.list").find("table [name=WRITER_NM]").val($(obj).parents("div.list").find("b").text());
+	$(obj).parents("div.list").find("table [name=CONTENTS]").val($(obj).parents("div.list").find("div:eq(0)").data("conts"));
+	
+	$(obj).parents(".list").find("ul.fileArea li a").each(function(){
+		var liObj = '<li><a href="#;" title="첨부파일 다운로드" data-siteno="'+$(this).data("siteno")+'" data-boardseq="'+$(this).data("boardseq")+'" data-bbsseq="'+$(this).data("bbsseq")+'" data-fileseq="'+$(this).data("fileseq")+'" onclick="fileDown2(this);">'+$(this).text()+'</a> <button type="button" onclick="attachFileDel(this)">삭제</button></li>';
+		$(liObj).appendTo($(obj).parents(".list").find("table ul.fileArea"));
+	});
+}
+
+function attachAct(obj){
+	
+	var fileArea = $(obj).parents("td.fileArea");
+	if($(obj).hasClass("add")){
+		var fileSet = '<p><input type="text" class="txt" name="FILE_NM" readonly="readonly"/><a href="#;" class="btn_board gray">찾아보기<input type="file" name="ATTACH_FILE_OBJNEW" onchange="changeFile(this);" /></a>';
+		fileSet += '&nbsp;<button type="button" class="btn_board add" onclick="attachAct(this);">'+MSG.btnAdd+'</button>';
+		fileSet += '&nbsp;<button type="button" class="btn_board del" onclick="attachAct(this);">'+MSG.btnRemove+'</button></p>';
+		
+		if($(fileArea).find("ul.fileArea").length > 0){
+			$(fileSet).insertBefore($(fileArea).find("ul.fileArea"));
+		}else{
+			$(fileSet).appendTo($(fileArea));
+		}
+		
+	}else{
+		if($(obj).parent().is("P")){
+			$(obj).parent().remove();
+		}else{
+			$(fileArea).find(">[name=FILE_NM]").val("");
+			$(fileArea).find(">a input:file").remove();
+			$('<input type="file" name="ATTACH_FILE_OBJNEW" onchange="changeFile(this);" />').appendTo($(fileArea).find(">a"));
+		}
+	}
+}
+
+function replySave(obj){
+	var idno = $(obj).parents("div.list").data("idno");
+	
+	if($(obj).parents("div.list").find("textarea").val().trim() == ""){
+		alert('답글을 입력하세요.');
+		return;
+	}
+
+	if(!confirm(MSG.confirmSave)) {
+		return;
+	}
+	
+	$("#replyModiForm input:hidden[name=BBS_SEQ]").val(idno);
+	
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardQnaReplyModi.do",
+		ajaxFormName : 'replyModiForm',
+		dataType : "json",
+		success : function(data) {
+			if(data == 1){
+				alert(MSG.alertSaveSuccess);
+				fn_reply_list();
+			}else if(data == 2){
+				alert(MSG.alertSessionExpired);
+			}else{
+				alert(MSG.alertSaveFail);
+			}
+		}
+	});
+}
+
+function replySaveCancel(obj){
+	$("div.list").find("b, time, div, ul, p:eq(0)").show();
+	$("div.list table").remove();
+	$("div.list p.btn_c").remove();
+}
+
+function replyDel(obj){
+	var idno = $(obj).parents("div.list").data("idno");
+	
+	if(!confirm(MSG.confirmDelete)) {
+		return;
+	}
+	
+	$("#replyModiForm input:hidden[name=BBS_SEQ]").val(idno);
+	
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardQnaReplyDel.do",
+		data : $("#replyModiForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			if(data == 1){
+				alert(MSG.alertDeleteSuccess);
+				$("#replyModiForm [name='pageNo']").val("1");
+				fn_reply_list();
+			}else if(data == 2){
+				alert(MSG.alertSessionExpired);
+			}else{
+				alert(MSG.alertDeleteFail);
+			}
+		}
+	});
+}
+
+function attachFileDel(obj){
+	
+	if(!confirm(MSG.confirmDelete)) {
+		return;
+	}
+	var liObj = $(obj).parents("li");
+	
+	$("#replyModiForm input:hidden[name=BBS_SEQ]").val($(obj).parents("li").find("a").data("bbsseq"));
+	
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardReplyAttachDel.do",
+		data : $("#replyModiForm").serialize()+"&FILE_SEQ="+$(obj).parents("li").find("a").data("fileseq"),
+		dataType : "json",
+		success : function(data) {
+			if(data == 1){
+				alert(MSG.alertDeleteSuccess);
+				$(liObj).remove();
+			}else if(data == 2){
+				alert(MSG.alertSessionExpired);
+			}else{
+				alert(MSG.alertDeleteFail);
+			}
+		}
+	});
+}
+
+//댓글 스크립트
+function fn_comment_list(){
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardCommentListData.do",
+		data : $("#commentModiForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			fn_comm_setList("#tbody", data, "#listTemplate1", "#noListTemplate1", "#rowCount", "#p_pagingFH");
+			$("#commentModiForm div.list").each(function(){
+				var org = $(this).find(">div:eq(0)").text();
+				$(this).find(">div:eq(0)").html(org.replace(/\n/g,"<br/>"));
+			});
+		}
+	});
+}
+
+function commentSave(){
+	//validation check
+	if($("#commentModiForm textarea[name=CONTENTS]").val().trim() == ""){
+		alert(MSG.btnComment + MSG.suffixInput);
+		return;
+	}
+	
+	if (!confirm(MSG.confirmSave)) {
+		return;
+	}
+	
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardCommentSave.do",
+		data : $("#commentModiForm").serialize(),
+		dataType : "json",
+		success : function(data) {
+			if(data == 1){
+				alert(MSG.alertSaveSuccess);
+				$("#commentModiForm textarea[name=CONTENTS]").val("");
+				$("#commentModiForm b").text("0");
+				$("#commentModiForm [name='pageNo']").val("1");
+				fn_comment_list();
+			}else if(data == 2){
+				alert(MSG.alertSessionExpired);
+			}else{
+				alert(MSG.alertSaveFail);
+			}
+		}
+	});
+}
+
+function commentModi(obj){
+	var commentHtml = "";
+	commentHtml += "<div class=\"comment_write_box\">";
+	commentHtml += "<div class=\"inner_box\">";
+	commentHtml += "<textarea rows=\"\" cols=\"\" class=\"comment_textarea\">"+$("#commentModiForm #"+obj+" .write_txt").html()+"</textarea>";
+	commentHtml += "<button type=\"button\" class=\"bt_register\" onclick=\"commentUpt("+obj+");\">수정</button>";
+	commentHtml += "</div>";
+	commentHtml += "</div>";
+	$(commentHtml).appendTo($("#commentModiForm #"+obj));
+	$(".py_20").hide();
+}
+
+function commentUpt(obj){
+	var commentTextarea = $("#commentModiForm #"+obj+" textarea").val();
+	alert(commentTextarea);
+	//validation check
+	if(commentTextarea == ""){
+		alert(MSG.btnComment + MSG.suffixInput);
+		$("#commentModiForm #"+obj+" textarea").focus();
+		return;
+	}
+	
+	if(!confirm(MSG.confirmSave)) {
+		$(".py_20").show();
+		return;
+	}
+	
+	$("#commentModiForm textarea[name=CONTENTS]").val(commentTextarea);
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardCommentModi.do",
+		data : $("#commentModiForm").serialize()+"&COMMENT_SEQ="+obj,
+		dataType : "json",
+		success : function(data) {
+			if(data == 1){
+				alert(MSG.alertSaveSuccess);
+				fn_comment_list();
+			}else if(data == 2){
+				alert(MSG.alertSessionExpired);
+			}else{
+				alert(MSG.alertSaveFail);
+			}
+			$("#commentModiForm textarea[name=CONTENTS]").val("");
+			$(".py_20").show();
+		}
+	});
+}
+
+function linkPage(pageNo){
+	$("#commentModiForm [name='pageNo']").val(pageNo);
+	fn_comment_list();
+}
+
+function commentDel(obj){
+	if (!confirm(MSG.confirmDelete)) {
+		return;
+	} 
+	var idno = $(obj).parents("li").data("id");
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardCommentDel.do",
+		data : $("#commentModiForm").serialize()+"&COMMENT_SEQ="+idno,
+		dataType : "json",
+		success : function(data) {
+			if(data == 1){
+				alert(MSG.alertDeleteSuccess);
+				$("#commentModiForm [name='pageNo']").val("1");
+				fn_comment_list();
+			}else if(data == 2){
+				alert(MSG.alertSessionExpired);
+			}else{
+				alert(MSG.alertDeleteFail);
+			}
+		}
+	}); 
+}
+
+function fn_updateLikeYn(checkYn){
+	
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardLikeUpdate.do",
+		data : $("#sendForm").serialize()+"&CHK_YN="+checkYn,
+		dataType : "json",
+		success : function(data) {
+			$("#like_y").html(data.LIKE_Y);
+			$("#like_n").html(data.LIKE_N); 
+		}
+	});
+}
+
+
+function fn_updateCommentLikeYn(obj,checkYn){
+	var dataid = $(obj).parents("li").data("id");
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardCommentLikeUpdate.do",
+		data : $("#commentModiForm").serialize()+"&CHK_YN="+checkYn+"&COMMENT_SEQ="+dataid,
+		dataType : "json",
+		success : function(data) {
+			
+			if(data.length > 0){
+				$("#"+dataid+" .eval #com_like_y").html(data.LIKE_Y);
+				$("#"+dataid+" .eval #com_like_n").html(data.LIKE_N);
+			}else{
+				alert(MSG.MSG.alertErrorOccurred);
+			}
+		}
+	});
+}
+
+function fn_goMainList(){
+	$("#sendForm").attr("action", "index.do");
+	$("#sendForm").submit();
+}
+
+function fn_ReComment(obj){
+	//<button class="btnLine_s btn_blue" type="button" onclick="fn_addReply(this)" ><span>Reply</span></button>
+	
+	if($(".addReply.add").length >0){
+		$(".addReply.add").remove();
+	}
+	
+	var dataid = $(obj).parents("li").data("id");
+	var fieldObj = '<li class="addReply add"><div class="txtInfo">';
+	fieldObj += '</div><fieldset><div class="write">';
+	fieldObj += '<textarea class="inp_area" name="addCommentTxt"></textarea>';
+	fieldObj += '<button type="button" type="button" onclick="fn_ReCommentSave(\''+dataid+'\');">save</button>';
+	fieldObj += '</div></fieldset></li>';
+	$("#commentModiForm #"+dataid).after(fieldObj);
+	
+}
+
+function fn_ReCommentSave(seq){
+	//validation check
+	if($("#commentModiForm textarea[name=addCommentTxt]").val() == ""){
+		alert(MSG.btnComment + MSG.suffixInput);
+		return;
+	}
+
+	if (!confirm(MSG.confirmSave)) {
+		return;
+	}
+
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/BoardReCommentSave.do",
+		data : $("#commentModiForm").serialize()+"&P_COMMENT_SEQ="+seq,
+		dataType : "json",
+		success : function(data) {
+			if(data == 1){
+				alert(MSG.alertSaveSuccess);
+				$("#commentModiForm textarea[name=CONTENTS]").val("");
+				$("#commentModiForm b").text("0");
+				$("#commentModiForm [name='pageNo']").val("1");
+				fn_comment_list();
+			}else if(data == 2){
+				alert(MSG.alertSessionExpired);
+			}else{
+				alert(MSG.alertSaveFail);
+			}
+		}
+	});
+}
+
+function filePreview(obj){
+	fn_comm_ajax({
+		url : "/ajax/FR_SVC/FrontFilePreview.do",
+		data : $("#sendForm").serialize()+"&FILE_SEQ="+$(obj).data("fileseq"),
+		dataType : "json",
+		success : function(data) {
+			if(data != null){
+				if(data.status=='0'){
+					window.open('/synap/skin/doc.html?fn='+data.fn+"&rs="+data.rs,'scrollbas=yes,toolbar=no,location=no,status=no,menubar=no,resizable=no,fullscreen=yes');
+				}else{
+					alert(data.msg);
+				}
+			}else{
+				alert("미리보기 변환 중 에러가 발생했습니다.\n관리자에게 문의 해주세요.");
+			}
+		}
+	});
+}
+
+function captchaCB(){
+	$("#sendForm input:hidden[name=CAPTCHA_YN]").val("Y");
+}
+
+function captchaEXCB(){
+	$("#sendForm input:hidden[name=CAPTCHA_YN]").val("N");
+	alert("reCAPTCHA를 다시 인증해주세요.");
+	try {
+		grecaptcha.reset();
+	} catch(e) {
+		console.warn("reCAPTCHA 객체가 없습니다. 새로고침합니다.");
+		location.reload();
+	}
+}
+</script>
+<article>
+	<div class="post_wrap">
+		<div class="post_tbl">
+			<div class="grid_view">
+				<div class="tbl_grid">
+					<ul class="postView">
+						<li class="tbl_row">
+							<div class="post_list_item">
+								<div class="post_tit">
+									<div class="subject">
+										<a href="#a" class="subject_click" title="상세 페이지 이동">컴퓨터공학과 지정발전기금 유치 캠페인</a>
+									</div>
+									<ul class="subject_info">
+										<li class="w_name">컴퓨터공학과</li>
+										<li class="w_date">2025-01-15 (14:17)</li>
+										<li class="w_hit">152</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						
+							<li class="tbl_row">
+								<div class="filelist">
+									
+										
+											<div>
+												<a href="#;" class="filename" data-boardseq="3" data-siteno="23" data-bbsseq="35318" data-fileseq="37186" onclick="fileDown(this);" title="첨부파일 다운로드">
+													글로컬캠퍼스발전기금포스터유형1.jpg (15792854 KB)
+												</a>
+											</div>
+										
+									
+								</div>
+							</li>
+						
+					</ul>
+				</div>
+				<!--//tbl_grid-->
+				<div class="post_body">
+					<div class="post_bodyView">
+						
+						
+						
+						
+						
+						
+					</div>
+					<!-- // post_body -->
+				</div>
+				
+				
+			</div>
+			<!--//grid_view-->
+		</div>
+		<!--//post_tbl-->
+		
+		<div class="post_bottom">
+			<form id="sendForm" method="post">
+				<input type="hidden" name="MENU_ID"				value="140"/>
+				<input type="hidden" name="SITE_NO"				value="23"/>
+				<input type="hidden" name="CONTENTS_NO"			value=""/>
+				<input type="hidden" name="P_TAB_NO"			value=""/>
+				<input type="hidden" name="TAB_NO"				value=""/>
+				<input type="hidden" name="BOARD_SEQ"			value="3"/>
+				<input type="hidden" name="BOARD_CATEGORY_NO"	value=""/>
+				<input type="hidden" name="BBS_SEQ"				value="35318"/>
+				<input type="hidden" name="pageNo"				value="1"/>
+				<input type="hidden" name="PASSWD"				value=""/>
+				<input type="hidden" name="CAPTCHA_YN"			value="N"/>
+			
+				
+				<ul class="bt_list">
+					
+					<li>
+						
+							
+							
+								
+							
+						
+						<button type="button" name=""  class="bt bt_on" onclick="fn_goMainList()">목록</button>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<!--//post_bottom-->
+
+		<div class="mt_50">
+			<div class="tbl_grid">
+				<ul class="list_link">
+					<li class="dl_row">
+						
+						
+							
+							
+								
+							
+						
+						<strong class="list_prev" onclick="location.href='/cms/FR_CON/BoardView.do?MENU_ID=140&CONTENTS_NO=&SITE_NO=23&BOARD_SEQ=3&BOARD_CATEGORY_NO=&BBS_SEQ=35413&P_TAB_NO=&TAB_NO='">이전글</strong>
+						<span>
+							
+								
+								
+								
+									<a href="/cms/FR_CON/BoardView.do?MENU_ID=140&CONTENTS_NO=&SITE_NO=23&BOARD_SEQ=3&BOARD_CATEGORY_NO=&BBS_SEQ=35413&P_TAB_NO=&TAB_NO=" class="subject_click" title="2025년도 1학기 현장실습학기제 시행 알림 페이지 이동">2025년도 1학기 현장실습학기제 시행 알림 | 25.01.20</a>
+								
+							
+						</span>
+					</li>
+					<li class="dl_row">
+						
+						
+							
+							
+								
+							
+						
+						<span>
+							
+								
+								
+								
+									<a href="/cms/FR_CON/BoardView.do?MENU_ID=140&CONTENTS_NO=&SITE_NO=23&BOARD_SEQ=3&BOARD_CATEGORY_NO=&BBS_SEQ=35213&P_TAB_NO=&TAB_NO=" class="subject_click" title="2025학년도 기준 4학년 졸업작품 지도신청서 제출 안내(일반형/연구형/대체형) 페이지 이동">2025학년도 기준 4학년 졸업작품 지도신청서 제출 안내(일반형/연구형/대체형) | 24.12.30</a>
+								
+							
+						</span>
+						<strong class="list_next" onclick="location.href='/cms/FR_CON/BoardView.do?MENU_ID=140&CONTENTS_NO=&SITE_NO=23&BOARD_SEQ=3&BOARD_CATEGORY_NO=&BBS_SEQ=35213&P_TAB_NO=&TAB_NO='">다음글</strong>
+					</li>
+				</ul>
+			</div>
+		</div>
+				
+	</div>
+	<!--//post_wrap -->
+</article>
+
+<script id="noListTemplate1" type="text/x-jquery-tmpl">
+</script>
+<script id="listTemplate1" type="text/x-jquery-tmpl">
+	<li class="comment_item {%if REPLY_YN == 'Y' %}addReply{%/if%}" data-id="{%= COMMENT_SEQ %}" id="{%= COMMENT_SEQ %}">
+		<div class="comment_area">
+			<div class="comment_info_box">
+				<ul class="comment_info">
+					<li class="write_tit">{%= WRITER_NM %}</li>
+					<li class="write_txt">
+						{%if DEL_YN != 'N' %}
+							삭제된 게시글 입니다.
+						{%else%}
+							{%= CONTENTS %}
+						{%/if%}
+					</li>
+					<li class="write_info">{%= WRITE_DT %}</li>
+				</ul>
+				{%if WRITER_YN == 'Y' && DEL_YN == 'N'%}
+					<div class="comment_edit">
+						<a href="#a" class="on" onclick="commentModi({%= COMMENT_SEQ %});">수정</a>
+						<a href="#a" onclick="commentDel(this);">삭제</a>
+					</div>
+				{%/if%}
+			</div>
+		</div>
+	</li>
+
+</script>
+
+								<!--/컨텐츠 위치-->
+							</article>
+							<!-- 테이블 반응형일 때 스크롤  -->
+							<script>
+								$('document').ready(function() {
+									$('.grid_wrap, .tbl_wrap').click(function() {
+										$(this).addClass('on');
+									});
+								});
+							</script>
+						</div>
+					</section>
+				</div>
+				<!--//conts_inner-->
+				
+
+
+
+				
+
+
+
+			</div>
+		</div>
+		<!--//page_conts-->
+	</div>
+	<!--//sub Container-->
+	
+
+
+<script>
+function setCookie(name, value, hours) {
+	const date = new Date();
+	date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
+
+	const expires = "expires=" + date.toUTCString();
+	document.cookie = name + "=" + encodeURIComponent(value) + "; " + expires + "; path=/";
+}
+
+function getCookie(name) {
+	const cookies = document.cookie.split(';');
+	for (let i = 0; i < cookies.length; i++) {
+		const c = cookies[i].trim();
+		if (c.indexOf(name + '=') === 0) {
+			return c.substring(name.length + 1);
+		}
+	}
+	return null;
+}
+
+$().ready(function() {
+	$(document).on("click", ".family_site", function() {
+		$(".family_site").toggleClass("on");
+	});
+	
+	$('html').click(function(e){
+		if($(e.target).parents('.family_site').length < 1){
+			$(".family_site").removeClass("on");
+		}
+	});
+	
+	$(".goto_top").click(function() {
+		$("html, body").animate({ scrollTop: 0 }, 100);
+		return false;
+	});
+});
+</script>
+<footer>
+	<div class="footer_wrap">
+		<div class="txt_shortcut">
+			<ul>
+				<li><a href="https://www.kku.ac.kr/cms/FR_CON/index.do?MENU_ID=2330" title="새창" target="_blank" class="em">개인정보처리방침</a></li>
+				<li><a href="https://www.kku.ac.kr/cms/FR_CON/index.do?MENU_ID=2340" title="새창" target="_blank" >이메일주소무단수집거부</a></li>
+			</ul>
+		</div>
+		<div class="footer_inner">
+			<div class="addr">
+				<div class="site_name">
+					<a href="#a"><img src="/hpg/images/common/cm_logo.png" alt="KU 건국대학교 KONKUK UNIV."></a>
+					<strong class="site_tit">컴퓨터공학과</strong>
+				</div>
+				<div class="addr_wrap">
+					<ul class="addr_txt">
+						<li>(27478) 충청북도 충주시 충원대로 268 건국대학교 글로컬캠퍼스<br>268, Chungwon-daero, Chungju-si, Chungcheongbuk-do, 27478, Republic of Korea</li>
+					</ul>
+				</div>
+				<div class="copy">COPYRIGHT ⓒ KONKUK UNIVERSITY. ALL RIGHTS RESERVED.</div>
+			</div>
+		
+			<div class="footer_etc">
+				<div class="family_site"><!-- 활성화 클래스 on 추가 -->
+					<button type="button" class="label">관련사이트</button>
+					<div class="option_list">
+						<ul>
+							<li><a href="http://foundation.konkuk.ac.kr/" target="_blank" title="새창" tabindex="-1">학교법인</a></li>
+							<li><a href="https://www.kuh.ac.kr/" target="_blank" title="새창" tabindex="-1">건국대학교병원</a></li>
+							<li><a href="https://www.kuh.co.kr/" target="_blank" title="새창" tabindex="-1">건국대충주병원</a></li>
+							<li><a href="https://www.kumilk.com/" target="_blank" title="새창" tabindex="-1">건국유업&amp;햄</a></li>
+							<li><a href="https://www.starctmall.com/" target="_blank" title="새창" tabindex="-1">건국AMC</a></li>
+							<li><a href="https://www.theclassic500.com/" target="_blank" title="새창" tabindex="-1">THE CLASSIC500</a></li>
+							<li><a href="https://www.psuca.edu/" target="_blank" title="새창" tabindex="-1">PSU</a></li>
+							<li><a href="https://kugolf.co.kr/" target="_blank" title="새창" tabindex="-1">KU GOLF</a></li>
+							<li><a href="https://www.konkuk.ac.kr/sites/vmth/index..do" target="_blank" title="새창" tabindex="-1">동물병원</a></li>
+							<li><a href="https://edulife.konkuk.ac.kr/" target="_blank" title="새창" tabindex="-1">미래지식교육원</a></li>
+							<li><a href="http://kli.konkuk.ac.kr/" target="_blank" title="새창" tabindex="-1">언어교육원</a></li>
+							<li><a href="/sites/Press/index.do" target="_blank" title="새창" tabindex="-1">출판부</a></li>
+							<li><a href="http://kkuprof.konkuk.ac.kr/" target="_blank" title="새창" tabindex="-1">교수협의회</a></li>
+							<li><a href="http://union.konkuk.ac.kr/" target="_blank" title="새창" tabindex="-1">직원노동조합</a></li>
+							<li><a href="http://kupu.konkuk.ac.kr/" target="_blank" title="새창" tabindex="-1">교수노동조합</a></li>
+							<li><a href="https://sanghuhmemorial.konkuk.ac.kr/" target="_blank" title="새창" tabindex="-1">상허문화재단</a></li>
+							<li><a href="https://kkuaa.or.kr/" target="_blank" title="새창" tabindex="-1">총동문회</a></li>
+							<li><a href="https://library.konkuk.ac.kr/" target="_blank" title="새창" tabindex="-1">상허기념도서관</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="sns_link">
+					<ul>
+						<li><a href="https://www.facebook.com/KonkukUniversity" target="_blank" title="새창"><img src="/hpg/images/common/ico_facebook.png" alt="페이스북 아이콘"></a></li>
+						<li><a href="https://www.instagram.com/konkuk_official/" target="_blank" title="새창"><img src="/hpg/images/common/ico_insta.png" alt="인스타 아이콘"></a></li>
+						<li><a href="https://www.youtube.com/user/KonkukUniv" target="_blank" title="새창"><img src="/hpg/images/common/ico_youtube.png" alt="유튜브 아이콘"></a></li>
+						<li><a href="https://blog.naver.com/dreamkonkuk" target="_blank" title="새창"><img src="/hpg/images/common/ico_blog.png" alt="블로그 아이콘"></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- //footer_etc -->
+		</div>
+	</div>
+</footer>
+<!--//footer-->
+
+<div class="goto_top"><a href="#">TOP</a></div>
+<!--  스크롤 이동 시 fix 클래스 부여  -->
+
+<script type="text/javascript" src="/hpg/js/slick/slick.js"></script>
+
+
+
+</body>
+</html>
