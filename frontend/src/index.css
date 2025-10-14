@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Konkuk University Green Theme */
+    --background: 0 0% 100%;
+    --foreground: 150 70% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 150 70% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 70% 15%;
+
+    /* Konkuk Green - Primary Color */
+    --primary: 150 65% 28%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 150 60% 45%;
+    --primary-glow: 150 70% 65%;
+
+    --secondary: 150 30% 95%;
+    --secondary-foreground: 150 70% 15%;
+
+    --muted: 150 20% 96%;
+    --muted-foreground: 150 15% 45%;
+
+    --accent: 150 55% 88%;
+    --accent-foreground: 150 70% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 25% 90%;
+    --input: 150 25% 90%;
+    --ring: 150 65% 28%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(150 65% 28%), hsl(150 60% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(150 70% 25%) 0%, hsl(150 60% 40%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(150 30% 98%));
+
+    /* Shadows with green glow */
+    --shadow-elegant: 0 10px 40px -10px hsl(150 65% 28% / 0.2);
+    --shadow-glow: 0 0 60px hsl(150 70% 65% / 0.3);
+    --shadow-card: 0 4px 20px hsl(150 30% 20% / 0.08);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 150 70% 15%;
+    --sidebar-primary: 150 65% 28%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 30% 95%;
+    --sidebar-accent-foreground: 150 70% 15%;
+    --sidebar-border: 150 25% 90%;
+    --sidebar-ring: 150 65% 28%;
+  }
+
+  .dark {
+    --background: 150 50% 8%;
+    --foreground: 150 20% 95%;
+
+    --card: 150 40% 12%;
+    --card-foreground: 150 20% 95%;
+
+    --popover: 150 40% 12%;
+    --popover-foreground: 150 20% 95%;
+
+    --primary: 150 60% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 150 55% 55%;
+    --primary-glow: 150 70% 65%;
+
+    --secondary: 150 30% 18%;
+    --secondary-foreground: 150 20% 95%;
+
+    --muted: 150 25% 15%;
+    --muted-foreground: 150 15% 60%;
+
+    --accent: 150 40% 20%;
+    --accent-foreground: 150 20% 95%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 150 30% 20%;
+    --input: 150 30% 20%;
+    --ring: 150 60% 45%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(150 60% 35%), hsl(150 55% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(150 65% 20%) 0%, hsl(150 55% 35%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(150 50% 8%), hsl(150 45% 12%));
+
+    --shadow-elegant: 0 10px 40px -10px hsl(150 60% 40% / 0.3);
+    --shadow-glow: 0 0 60px hsl(150 70% 65% / 0.4);
+    --shadow-card: 0 4px 20px hsl(150 70% 10% / 0.5);
+
+    --sidebar-background: 150 40% 12%;
+    --sidebar-foreground: 150 20% 95%;
+    --sidebar-primary: 150 60% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 30% 18%;
+    --sidebar-accent-foreground: 150 20% 95%;
+    --sidebar-border: 150 30% 20%;
+    --sidebar-ring: 150 60% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
